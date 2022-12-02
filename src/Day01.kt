@@ -1,27 +1,27 @@
 fun main() {
 
-    fun carriedCaloriesByTopElfs(input: List<String>, elfsNbr: Int): Int {
-        var elfs = mutableListOf<MutableList<Int>>()
+    fun carriedCaloriesByTopElves(input: List<String>, elvesNbr: Int): Int {
+        var elves = mutableListOf<MutableList<Int>>()
         var tmp = mutableListOf<Int>()
         for (caloric in input) {
             if (caloric.isNotEmpty()) {
                 tmp.add(caloric.toInt())
             } else {
-                elfs.add(tmp)
+                elves.add(tmp)
                 tmp = mutableListOf()
             }
         }
-        elfs.add(tmp)
+        elves.add(tmp)
 
-        return elfs.map { it.sum() }.sortedDescending().slice(IntRange(0, elfsNbr-1)).sum()
+        return elves.map { it.sum() }.sortedDescending().slice(IntRange(0, elvesNbr-1)).sum()
     }
 
     fun part1(input: List<String>): Int {
-        return carriedCaloriesByTopElfs(input, 1)
+        return carriedCaloriesByTopElves(input, 1)
     }
 
     fun part2(input: List<String>): Int {
-        return carriedCaloriesByTopElfs(input, 3)
+        return carriedCaloriesByTopElves(input, 3)
     }
 
     // test if implementation meets criteria from the description, like:
